@@ -1,0 +1,27 @@
+{
+	"name": "pipeline5555",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "rgr",
+					"value": "dfasd"
+				}
+			}
+		],
+		"variables": {
+			"rgr": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}

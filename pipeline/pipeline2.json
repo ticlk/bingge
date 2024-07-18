@@ -1,0 +1,88 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "select * from dbo.dbproperty\nwhere dbname='zhftestsql'\n"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Script1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"DBUrl": {
+							"value": "@activity('Script1').output.resultSets[0].rows[0]['dburl']",
+							"type": "Expression"
+						},
+						"DBName": {
+							"value": "@activity('Script1').output.resultSets[0].rows[0]['dbname']",
+							"type": "Expression"
+						},
+						"archi_name": {
+							"value": "@activity('Script1').output.resultSets[0].rows[0]['archiname']",
+							"type": "Expression"
+						},
+						"tablename": {
+							"value": "@activity('Script1').output.resultSets[0].rows[0]['tablename']",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"variables": {
+			"CalendarQuarter": {
+				"type": "String"
+			},
+			"testoutput": {
+				"type": "String"
+			},
+			"FiscalQuarter": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-04-30T02:49:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,33 @@
+{
+	"name": "AzureSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DateId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CalendarQuarter",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "FiscalQuarter",
+				"type": "tinyint",
+				"precision": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "testmysql"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

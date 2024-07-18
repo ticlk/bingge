@@ -1,0 +1,45 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "account0613blobsink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "powerbi计算公式问题 - Copy - Copy.csv",
+				"container": "account0613"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "time",
+				"type": "String"
+			},
+			{
+				"name": "brandname",
+				"type": "String"
+			},
+			{
+				"name": "brandid",
+				"type": "String"
+			},
+			{
+				"name": "cat",
+				"type": "String"
+			},
+			{
+				"name": "gmv",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -12,13 +12,16 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "55",
+					"variableName": "ggg",
 					"value": ""
 				}
 			}
 		],
 		"variables": {
 			"55": {
+				"type": "String"
+			},
+			"ggg": {
 				"type": "String"
 			}
 		},

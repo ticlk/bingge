@@ -1,0 +1,253 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "数据工厂名称",
+			"defaultValue": "zhftestadf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "“AzureBlobStorage1”的“connectionString”的安全字符串"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "“AzureSqlDatabase1”的“connectionString”的安全字符串"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "“AzureSqlDatabase2”的“connectionString”的安全字符串"
+		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "“AzureSqlDatabase3”的“password”的安全字符串"
+		},
+		"AzureSqlDatabase4_password": {
+			"type": "secureString",
+			"metadata": "“AzureSqlDatabase4”的“password”的安全字符串"
+		},
+		"CosmosDbNoSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "“CosmosDbNoSql1”的“connectionString”的安全字符串"
+		},
+		"CosmosDbNoSql2_connectionString": {
+			"type": "secureString",
+			"metadata": "“CosmosDbNoSql2”的“connectionString”的安全字符串"
+		},
+		"CosmosDbNoSql3_connectionString": {
+			"type": "secureString",
+			"metadata": "“CosmosDbNoSql3”的“connectionString”的安全字符串"
+		},
+		"RestService1_password": {
+			"type": "secureString",
+			"metadata": "“RestService1”的“password”的安全字符串"
+		},
+		"dbkv2_connectionString": {
+			"type": "secureString",
+			"metadata": "“dbkv2”的“connectionString”的安全字符串"
+		},
+		"zlxaccount0613_connectionString": {
+			"type": "secureString",
+			"metadata": "“zlxaccount0613”的“connectionString”的安全字符串"
+		},
+		"AzureDataLakeStorage1_sasUri": {
+			"type": "secureString",
+			"metadata": "“AzureDataLakeStorage1”的“sasUri”的安全字符串"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "@{linkedService().keyvalut}"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "zlxsqlserver-n3.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "zlxsqldb-n3"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin123"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "zhftest.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "re"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "zhftestsql"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "HTTP://BAIDU.COM"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "aaa"
+		},
+		"account0613blob_sasUri": {
+			"type": "secureString",
+			"metadata": "“account0613blob”的“sasUri”的安全字符串"
+		},
+		"account0613blobsink_sasUri": {
+			"type": "secureString",
+			"metadata": "“account0613blobsink”的“sasUri”的安全字符串"
+		},
+		"dbkv1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "zhftestsql"
+		},
+		"AzureBlobStorage604_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4ce3c57b-ceee-41b2-8588-2ababd381b7a/resourceGroups/testhdp/providers/Microsoft.Storage/storageAccounts/blob001"
+		},
+		"AzureBlobStorage604_properties_groupId": {
+			"type": "string",
+			"defaultValue": "blob"
+		},
+		"AzureBlobStorage604_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"blob001.blob.core.chinacloudapi.cn"
+			]
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "包含链接 ARM 模板的存储帐户的 URI"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "包含链接 ARM 模板的存储帐户的 SAS 令牌"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "zhftestadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"AzureSqlDatabase3_password": {
+						"value": "[parameters('AzureSqlDatabase3_password')]"
+					},
+					"AzureSqlDatabase4_password": {
+						"value": "[parameters('AzureSqlDatabase4_password')]"
+					},
+					"CosmosDbNoSql1_connectionString": {
+						"value": "[parameters('CosmosDbNoSql1_connectionString')]"
+					},
+					"CosmosDbNoSql2_connectionString": {
+						"value": "[parameters('CosmosDbNoSql2_connectionString')]"
+					},
+					"CosmosDbNoSql3_connectionString": {
+						"value": "[parameters('CosmosDbNoSql3_connectionString')]"
+					},
+					"RestService1_password": {
+						"value": "[parameters('RestService1_password')]"
+					},
+					"dbkv2_connectionString": {
+						"value": "[parameters('dbkv2_connectionString')]"
+					},
+					"zlxaccount0613_connectionString": {
+						"value": "[parameters('zlxaccount0613_connectionString')]"
+					},
+					"AzureDataLakeStorage1_sasUri": {
+						"value": "[parameters('AzureDataLakeStorage1_sasUri')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase4_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase4_properties_typeProperties_userName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_userName": {
+						"value": "[parameters('RestService1_properties_typeProperties_userName')]"
+					},
+					"account0613blob_sasUri": {
+						"value": "[parameters('account0613blob_sasUri')]"
+					},
+					"account0613blobsink_sasUri": {
+						"value": "[parameters('account0613blobsink_sasUri')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "zhftestadf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"dbkv1_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('dbkv1_properties_typeProperties_connectionString_secretName')]"
+					},
+					"AzureBlobStorage604_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureBlobStorage604_properties_privateLinkResourceId')]"
+					},
+					"AzureBlobStorage604_properties_groupId": {
+						"value": "[parameters('AzureBlobStorage604_properties_groupId')]"
+					},
+					"AzureBlobStorage604_properties_fqdns": {
+						"value": "[parameters('AzureBlobStorage604_properties_fqdns')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'zhftestadf_ArmTemplate_0')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,92 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "zhftestadf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase4_password": {
+			"value": ""
+		},
+		"CosmosDbNoSql1_connectionString": {
+			"value": ""
+		},
+		"CosmosDbNoSql2_connectionString": {
+			"value": ""
+		},
+		"CosmosDbNoSql3_connectionString": {
+			"value": ""
+		},
+		"RestService1_password": {
+			"value": ""
+		},
+		"dbkv2_connectionString": {
+			"value": ""
+		},
+		"zlxaccount0613_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_sasUri": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "@{linkedService().keyvalut}"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "zlxsqlserver-n3.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "zlxsqldb-n3"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"value": "admin123"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_server": {
+			"value": "zhftest.database.chinacloudapi.cn"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_database": {
+			"value": "re"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_userName": {
+			"value": "zhftestsql"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "HTTP://BAIDU.COM"
+		},
+		"RestService1_properties_typeProperties_userName": {
+			"value": "aaa"
+		},
+		"account0613blob_sasUri": {
+			"value": ""
+		},
+		"account0613blobsink_sasUri": {
+			"value": ""
+		},
+		"dbkv1_properties_typeProperties_connectionString_secretName": {
+			"value": "zhftestsql"
+		},
+		"AzureBlobStorage604_properties_privateLinkResourceId": {
+			"value": "/subscriptions/4ce3c57b-ceee-41b2-8588-2ababd381b7a/resourceGroups/testhdp/providers/Microsoft.Storage/storageAccounts/blob001"
+		},
+		"AzureBlobStorage604_properties_groupId": {
+			"value": "blob"
+		},
+		"AzureBlobStorage604_properties_fqdns": {
+			"value": [
+				"blob001.blob.core.chinacloudapi.cn"
+			]
+		}
+	}
+}

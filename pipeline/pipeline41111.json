@@ -18,9 +18,6 @@
 			}
 		],
 		"variables": {
-			"55": {
-				"type": "String"
-			},
 			"ggg": {
 				"type": "String"
 			}

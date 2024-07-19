@@ -12,11 +12,16 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "ggg",
-					"value": "hjhgfjg"
+					"variableName": "hhh",
+					"value": "jjjjj"
 				}
 			}
 		],
+		"variables": {
+			"hhh": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
